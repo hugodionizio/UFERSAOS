@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int export (int args, char *argv) {
+int export (char *argv) {
 	extern char var[80];
 
 	printf("exporting...");

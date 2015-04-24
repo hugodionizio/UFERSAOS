@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int unalias (int args, char *argv) {
+int unalias (char *argv) {
 	extern char aliasVar[80];
 
 	printf("unaliasing...");

@@ -24,15 +24,17 @@ int contaEspacos(char s[]) {
 
 char *listarComandos(char s[], int pos) {
    int numEspacos = 0, i = 0;
-   char comando[strlen(s)];
+   char *comando = (char *)malloc(sizeof(char)*10);
 
-   while (s[i] != '\0' && numEspacos < pos) {
+   while (s[i] != '\0' && numEspacos < pos + 1) {
 	   if(s[i] == ' ')
 		   numEspacos++;
 	   else
-		   if (numEspacos == pos - 1)
+		   if (numEspacos < pos + 1)
 			   comando[i] = s[i];
+	   i++;
    }
+   comando[i] = '\0';
 
-   return (char *)comando;
+   return comando;
 }

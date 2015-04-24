@@ -49,32 +49,34 @@ int main(int argc, char **argv) {
 		fgets(buffer, MAXBUFFER, stdin);
 	}
 	buffer[strlen(buffer)-1] = '\0';
-	strcat(buffer, " concatenado");
 
-	printf("O papagaio diz: %s\n", buffer);
+	printf("Número de comandos: %d\n", contaEspacos(buffer));
 
-	printf("Número de comandos: %d", contaEspacos(buffer));
+	strcpy(command, listarComandos(buffer, 0));
 	printf("comando %d: %s\n", 0, command);
 
 	for(i = 0; i < MAXCOMMANDS; i++) {
-		if (argc == 1) {
-			if (strcmp(commands[i], argv[0])) {
+		if (argc >= 1) {
+			if (strcmp(commands[i], command) == 0) {
 				argint = i;
 				break;
 			}
 		}
-		else if (argc > 1)
-			if (strcmp(commands[i], argv[0])) {
-				argint = i;
-				break;
-			}
 	}
 
-	printf("A função enigma retorna valor %d para entrada %d.\n",
-			enigma(valor), valor);
+	printf("Comando escolhido = %d\n", argint);
 
 	switch (argint) {
-		case '7': alias(argv[1]); break;
+		case 0: ls(); break;
+		case 1: cd(); break;
+		case 2: echo(); break;
+		case 3: ps(); break;
+		case 4: killthis(); break;
+		case 5: printf("Exiting..."); exit(0); break;
+		case 6: alias(argv[2]); break;
+		case 7: unalias(argv[2]); break;
+		case 8: export(argv[2]); break;
+		case 9: unset(argv[2]); break;
 		default: printf("Hein?! Comando desconhecido...\n");
 	}
 

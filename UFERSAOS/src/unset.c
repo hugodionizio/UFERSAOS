@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int unset (int args, char *argv) {
+int unset (char *argv) {
 	extern char exportVar[80];
 
 	printf("unsetting...");

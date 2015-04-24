@@ -15,8 +15,8 @@ void ps();
 void killthis();
 void exit();
 void alias(char *);
-void unalias();
-void export();
-void unset();
+void unalias(char *);
+void export(char *);
+void unset(char *);
 
 #endif /* COMMANDS_H_ */
