@@ -44,41 +44,40 @@ int main(int argc, char **argv) {
 				strcat(buffer, " ");
 		}
 	}
-	else {
-		//scanf("%s", &buffer);
-		fgets(buffer, MAXBUFFER, stdin);
-	}
-	buffer[strlen(buffer)-1] = '\0';
 
-	printf("Número de comandos: %d\n", contaEspacos(buffer));
+	do {
+		if (argc <= 1) {
+			fgets(buffer, MAXBUFFER, stdin);
+			buffer[strlen(buffer)-1] = '\0';
+		}
+		printf("Número de comandos: %d\n", contaEspacos(buffer));
+		strcpy(command, listarComandos(buffer, 0));
+		printf("comando %d: %s\n", 0, command);
 
-	strcpy(command, listarComandos(buffer, 0));
-	printf("comando %d: %s\n", 0, command);
-
-	for(i = 0; i < MAXCOMMANDS; i++) {
-		if (argc >= 1) {
-			if (strcmp(commands[i], command) == 0) {
-				argint = i;
-				break;
+		for(i = 0; i < MAXCOMMANDS; i++) {
+			if (argc >= 1) {
+				if (strcmp(commands[i], command) == 0) {
+					argint = i;
+					break;
+				}
 			}
 		}
-	}
+		printf("Comando escolhido = %d\n", argint);
 
-	printf("Comando escolhido = %d\n", argint);
-
-	switch (argint) {
-		case 0: ls(); break;
-		case 1: cd(); break;
-		case 2: echo(); break;
-		case 3: ps(); break;
-		case 4: killthis(); break;
-		case 5: printf("Exiting..."); exit(0); break;
-		case 6: alias(argv[2]); break;
-		case 7: unalias(argv[2]); break;
-		case 8: export(argv[2]); break;
-		case 9: unset(argv[2]); break;
-		default: printf("Hein?! Comando desconhecido...\n");
-	}
+		switch (argint) {
+			case 0: ls(); break;
+			case 1: cd(); break;
+			case 2: echo(); break;
+			case 3: ps(); break;
+			case 4: killthis(); break;
+			case 5: printf("Exiting..."); exit(0); break;
+			case 6: alias(argv[2]); break;
+			case 7: unalias(argv[2]); break;
+			case 8: export(argv[2]); break;
+			case 9: unset(argv[2]); break;
+			default: printf("Hem?! Comando desconhecido...\n");
+		}
+	} while (argc <= 1 && argint != 5);
 
 	return EXIT_SUCCESS;
 }
