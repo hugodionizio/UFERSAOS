@@ -9,7 +9,7 @@
 int export (char *argv) {
 	extern char var[80];
 
-	printf("exporting...");
+	printf("exporting...\n");
 
 	return (0);
 }

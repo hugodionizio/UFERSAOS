@@ -13,7 +13,7 @@ void cd();
 void echo();
 void ps();
 void killthis();
-void exit();
+void exitShell();
 void alias(char *);
 void unalias(char *);
 void export(char *);

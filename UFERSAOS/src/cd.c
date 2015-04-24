@@ -6,5 +6,5 @@
  */
 
 void cd() {
-	printf ("changing directory...");
+	printf ("changing directory...\n");
 }

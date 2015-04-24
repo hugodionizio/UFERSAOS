@@ -6,5 +6,5 @@
  */
 
 void ps() {
-	printf("processing status...");
+	printf("processing status...\n");
 }

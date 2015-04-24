@@ -9,7 +9,7 @@
 int unalias (char *argv) {
 	extern char aliasVar[80];
 
-	printf("unaliasing...");
+	printf("unaliasing...\n");
 
 	return (0);
 }

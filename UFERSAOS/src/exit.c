@@ -7,7 +7,7 @@
 #include <unistd.h>
 
 int exitShell () {
-	printf("exiting...");
+	printf("exiting...\n");
 	exit(1);
 
 	return (0);

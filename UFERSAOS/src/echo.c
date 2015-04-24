@@ -6,5 +6,5 @@
  */
 
 void echo() {
-	printf("echo...");
+	printf("echo...\n");
 }

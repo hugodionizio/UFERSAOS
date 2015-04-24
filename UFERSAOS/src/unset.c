@@ -9,7 +9,7 @@
 int unset (char *argv) {
 	extern char exportVar[80];
 
-	printf("unsetting...");
+	printf("unsetting...\n");
 
 	return (0);
 }

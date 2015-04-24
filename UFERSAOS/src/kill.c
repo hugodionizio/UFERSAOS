@@ -6,5 +6,5 @@
  */
 
 void killthis() {
-	printf("killing...");
+	printf("killing...\n");
 }
