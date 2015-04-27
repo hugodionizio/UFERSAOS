@@ -8,15 +8,29 @@
 #ifndef COMMANDS_H_
 #define COMMANDS_H_
 
-void ls();
+/*int ls();
 void cd();
 void echo();
 void ps();
 void killthis();
-void exitShell();
+int exitShell();
 void alias(char *);
-void unalias(char *);
-void export(char *);
-void unset(char *);
+int unalias(char *);
+int export(char *);
+int unset(char *);
+ * */
+
+#ifdef i386-pc-minix
+	#include "ls.c"
+	#include "cd.c"
+	#include "echo.c"
+	#include "ps.c"
+	#include "kill.c"
+	#include "exit.c"
+	#include "alias.c"
+	#include "unalias.c"
+	#include "export.c"
+	#include "unset.c"
+#endif
 
 #endif /* COMMANDS_H_ */

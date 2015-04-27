@@ -1,0 +1,1 @@
+cc /root/UFERSAOS/src/main.c -o /root/UFERSAOS/Debug/minix-out/UFERSAOS

@@ -11,12 +11,12 @@
 #include <stdio.h>
 #include "Auxiliar.h"
 
-#include "commands.h"
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "commands.h"
 
 #define MAXCOMMANDS 10
 #define MAXBUFFER 80
@@ -57,6 +57,9 @@ int main(int argc, char **argv) {
 					break;
 				}
 			}
+		}
+		if (i == MAXCOMMANDS) {
+			argint = MAXCOMMANDS;
 		}
 		printf("Comando escolhido: %s (%d)\n", command, argint);
 
