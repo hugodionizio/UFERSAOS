@@ -22,6 +22,44 @@ int contaEspacos(char s[]) {
    return numEspacos;
 }
 
+char ** divideString(char s[])
+{
+	int numeroDeEntradas = contaEspacos(s)+1;
+
+	char ** string = (char**)malloc(numeroDeEntradas*sizeof(char*));
+
+	int * tamanhoEntradas = (int*)malloc(numeroDeEntradas*sizeof(int));
+
+	int qntEntradas=0,j = 0;
+
+	int tamanhoDeS = strlen(s);
+
+	//Calculando tamanho de cada subString
+	for(int i=1; i<tamanhoDeS; i++)
+			if(s[i] != ' ' && s[i] != '\0')
+				j++;
+			else
+			{
+				tamanhoEntradas[qntEntradas] = j+1;
+				j=0;
+				qntEntradas++;
+			}
+
+	string[0] = (char*)malloc(tamanhoEntradas[0]*sizeof(char));
+
+	string[0] = strtok (s," ");
+
+	//Reservando espaço para cada subString
+	for(int i=1; i<numeroDeEntradas; i++)
+	{
+		string[i] = (char*)malloc(tamanhoEntradas[i]*sizeof(char));
+
+		string[i] = strtok (NULL," ");
+	}
+
+	return string;
+}
+
 char *listarComandos(char s[], int pos) {
    int numEspacos = 0, i = 0;
    char *comando = (char *)malloc(sizeof(char)*10);
