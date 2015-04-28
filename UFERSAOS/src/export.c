@@ -13,7 +13,7 @@ int export(int argc, char *argv[])
 	//extern char aliasVar[80];
 //	struct aliasent *alias;
 
-  int count = 0;
+	/*  int count = 0;
 
   printf("exporting...\n");
   printf("\n");
@@ -25,16 +25,22 @@ int export(int argc, char *argv[])
 
   char *val = getenv("USER");
   printf("\n\nCurrent value of environment variable USER is [%s]\n",val);
+	 * */
 
-  if(setenv("USER","Arora",1))
-  {
-    printf("\n setenv() failed\n");
-    return 1;
+  if (argc < 3) {
+	  if(setenv(argv[1], argv[2], 1)) {
+		printf("\nFalha na atribuição. Tente novamente.\n");
+		return 1;
+	  }
+  }
+  else {
+	printf ("Número de entradas (%d) em excesso\n", argc);
+	return 1;
   }
 
-  printf("\n Successfully Added a new value to existing environment variable USER\n");
+  printf ("variável \"%s\" = %s atribuída com sucesso!\n", argv[1], getenv(argv[1]));
 
-  val = getenv("USER");
+  /*  val = getenv("USER");
   printf("\nNew value of environment variable USER is [%s]\n",val);
 
   /*while(1)
