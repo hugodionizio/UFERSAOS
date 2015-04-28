@@ -16,27 +16,24 @@
 #include <fcntl.h>
 
 void ps() {
-	/*Esta string armazenará o atual caminho do programa*/
+	/*Esta string armazenarÃ¡ o atual caminho do programa*/
 	char * diretorio = (char*)malloc(1024*sizeof(char));
 
 	for(int i=0; i<1024; i++)
 		diretorio[i] = '\0';
 
-	/*Esta função insere o caminho atual na variável diretorio*/
+	/*Esta funÃ§Ã£o insere o caminho atual na variÃ¡vel diretorio*/
 	strcpy(diretorio,"/proc/");
 
-	/*Esta função abre o diretório.*/
+	/*Esta funÃ§Ã£o abre o diretÃ³rio.*/
 	DIR * dir = opendir(diretorio);
 
-	/*Esta estrutura armazenará informações sobre o item lido. No caso, pela função readdir*/
+	/*Esta estrutura armazenarÃ¡ informaÃ§Ãµes sobre o item lido. No caso, pela funÃ§Ã£o readdir*/
 	struct dirent * entrada;
 
-	if(!dir)
-		return -1;
-
-	/*Lembrando que a função readdir aponta para o próximo item dentro do diretório diretório*/
+	/*Lembrando que a funÃ§Ã£o readdir aponta para o prÃ³ximo item dentro do diretÃ³rio diretÃ³rio*/
 	if(!(entrada = readdir(dir)))
-		return -1;
+		printf("Problem 39 - ps.c");
 
 	int strlenght = strlen(diretorio);
 
@@ -55,7 +52,7 @@ void ps() {
 		int temp = open(diretorio,O_RDONLY);
 
 
-		/*Se o item for um diretório, isto significa que o diretório representa um processo em execução*/
+		/*Se o item for um diretÃ³rio, isto significa que o diretÃ³rio representa um processo em execuÃ§Ã£o*/
 		if(temp != -1)
 		{
 			char * line = (char*)malloc(1024*sizeof(char));
