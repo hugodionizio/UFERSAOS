@@ -8,15 +8,7 @@
  *      		 Wilka Tavares
  */
 
-#include <stdio.h>
-#include "Auxiliar.h"
-
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include "commands.h"
+#include "UFERSAOS.h"
 
 #define MAXCOMMANDS 10
 #define MAXBUFFER 80
@@ -75,8 +67,8 @@ int main(int argc, char **argv) {
 			case 5: exitShell(); break;
 			case 6: alias(argv[2]); break;
 			case 7: unalias(argv[2]); break;
-			case 8: export(argv[2]); break;
-			case 9: unset(argv[2]); break;
+			case 8: export(numeroDeEntradas-1,string); break;
+			case 9: unset(numeroDeEntradas-1,string); break;
 			default: system(buffer);
 		}
 	} while (argc <= 1 && argint != 5);
