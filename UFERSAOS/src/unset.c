@@ -11,5 +11,10 @@ int unset (char *argv) {
 
 	printf("unsetting...\n");
 
+	char* pPath;
+	pPath = getenv ("PATH");
+	if (pPath!=NULL)
+	printf ("O caminho atual é: %s\n",pPath);
+
 	return (0);
 }
