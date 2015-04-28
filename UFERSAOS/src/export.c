@@ -8,7 +8,7 @@
 
 extern char **environ;
 
-int export(char *argv[])
+int export(int argc, char *argv[])
 {
 	//extern char aliasVar[80];
 //	struct aliasent *alias;
