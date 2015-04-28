@@ -6,15 +6,27 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int unset (char *argv) {
-	extern char exportVar[80];
+extern char **environ;
 
-	printf("unsetting...\n");
+int unset (int argc, char *argv[]) {
 
-	char* pPath;
-	pPath = getenv ("PATH");
-	if (pPath!=NULL)
-	printf ("O caminho atual é: %s\n",pPath);
+	char *var;
+
+	if (argc != 2) {
+		var = getenv(argv[1]);
+
+		if(var == NULL) {
+			printf("\nFalha na remoção. Tente novamente.\n");
+			return 1;
+		}
+	}
+	else {
+		printf ("Número de entradas (%d) incompatível\n", argc);
+		return 1;
+	}
+
+	unsetenv(argv[1]);
+	printf ("variável \"%s\" removida com sucesso!\n", argv[1]);
 
 	return (0);
 }
