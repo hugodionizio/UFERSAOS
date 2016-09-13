@@ -19,7 +19,8 @@ void ps() {
 	/*Esta string armazenarÃ¡ o atual caminho do programa*/
 	char * diretorio = (char*)malloc(1024*sizeof(char));
 
-	for(int i=0; i<1024; i++)
+	int i;
+	for(i=0; i<1024; i++)
 		diretorio[i] = '\0';
 
 	/*Esta funÃ§Ã£o insere o caminho atual na variÃ¡vel diretorio*/

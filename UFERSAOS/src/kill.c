@@ -4,6 +4,8 @@
  *  Created on: 22/04/2015
  *      Author: hugo
  */
+#include <signal.h>
+#include <stdio.h>
 
 void killthis(int argc, char * argv[]) {
 	if(argc == 1)

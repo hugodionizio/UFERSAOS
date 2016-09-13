@@ -13,6 +13,19 @@
 #define MAXCOMMANDS 10
 #define MAXBUFFER 80
 
+enum COMMAND_CONSTANTS {
+	LS,
+	CD,
+	ECHO,
+	PS,
+	KILL,
+	EXIT,
+	ALIAS,
+	UNALIAS,
+	EXPORT,
+	UNSET
+};
+
 int main(int argc, char **argv) {
 	int argint = MAXCOMMANDS, i;
 
@@ -59,16 +72,16 @@ int main(int argc, char **argv) {
 		printf("Comando escolhido: %s (%d)\n", string[0], argint);
 
 		switch (argint) {
-			case 0: ls(); break;
-			case 1: cd(numeroDeEntradas-1,string); break;
-			case 2: echo(numeroDeEntradas-1,string); break;
-			case 3: ps(); break;
-			case 4: killthis(numeroDeEntradas-1,string); break;
-			case 5: exitShell(); break;
-			case 6: alias(argv[2]); break;
-			case 7: unalias(argv[2]); break;
-			case 8: export(numeroDeEntradas-1,string); break;
-			case 9: unset(numeroDeEntradas-1,string); break;
+			case LS: ls(); break;
+			case CD: cd(numeroDeEntradas-1,string); break;
+			case ECHO: echo(numeroDeEntradas-1,string); break;
+			case PS: ps(); break;
+			case KILL: killthis(numeroDeEntradas-1,string); break;
+			case EXIT: exitShell(); break;
+			case ALIAS: alias(argv[2]); break;
+			case UNALIAS: unalias(argv[2]); break;
+			case EXPORT: export(numeroDeEntradas-1,string); break;
+			case UNSET: unset(numeroDeEntradas-1,string); break;
 			default: system(buffer);
 		}
 	} while (argc <= 1 && argint != 5);

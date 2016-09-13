@@ -5,6 +5,8 @@
  *      Author: hugo
  */
 
+#include <stdio.h>
+
 int enigma(int n) {
 
 	return 2*n;
@@ -34,8 +36,9 @@ char ** divideString(char s[])
 
 	int tamanhoDeS = strlen(s);
 
+	int i;
 	//Calculando tamanho de cada subString
-	for(int i=1; i<tamanhoDeS; i++)
+	for(i=1; i<tamanhoDeS; i++)
 			if(s[i] != ' ' && s[i] != '\0')
 				j++;
 			else
@@ -49,8 +52,9 @@ char ** divideString(char s[])
 
 	string[0] = strtok (s," ");
 
+
 	//Reservando espaço para cada subString
-	for(int i=1; i<numeroDeEntradas; i++)
+	for(i=1; i<numeroDeEntradas; i++)
 	{
 		string[i] = (char*)malloc(tamanhoEntradas[i]*sizeof(char));
 

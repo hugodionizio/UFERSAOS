@@ -1,0 +1,3 @@
+int *vetorInterrupcoes;
+
+void empilharProcesso();
